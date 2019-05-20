@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    hello
+
+    <script>
+        var apiRequest = new XMLHttpRequest();
+
+        let httpMethod = "GET" //Get, delete, put, post requests
+
+        let url = "https://api.jquery.com/remove/";
+
+        apiRequest.open(httpMethod, url, true); 
+
+        apiRequest.onreadystatechange = funciton(){
+            //waiting for changes in state of transmission of xhr object.
+            //this code block executes
+            //everytime there is a 
+            //change in the xhr object
+            if(apiRequest.readyState === 4 && apiRequest.status === 200) {
+                console.log(apiRequest.responseText);
+            }
+
+        }
+    </script>
+</body>
+</html>
