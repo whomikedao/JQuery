@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+    <input type="text" class="text">
+    <button>Search</button>
+    <div class="output"></div>
+
+
+    <script>
+        const api = 'AIzaSyCn1DE-I4dOuOafP-Xqj4g34Mzbqi6pVRc';
+
+        let searchTerm = document.querySelector('input');
+        let btn = document.querySelector('button');
+        btn.addEventListener('click', search())
+
+        function search(){
+            let search = searchTerm.value;
+            let url = 'https://www.googleapis.com/youtube/v3/search/?part=snippet&key=' + api + '&q=' + search + '&maxResult=20';
+            console.log(url);
+            fetch(url)
+            .then((response)=>{
+                return response.json(); //gets the JSON object
+            })
+            .then((result)=>{ //result passes the object format
+                console.log(result);
+            })
+        }
+    </script>
+</body>
+</html>
